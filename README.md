@@ -1,8 +1,10 @@
 # TopCAWineries
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_CA_wineries`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to TopCAWineries. This application provides information on some of the best wineries in California.
 
-TODO: Delete this and the text above, and describe your gem
+It lists all the wine regions in California and lets the user pick the region they would like to see all the wineries from.
+
+It lets the user pick a winery in the region to see information on that winery.
 
 ## Installation
 

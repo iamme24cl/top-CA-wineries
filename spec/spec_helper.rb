@@ -1,5 +1,5 @@
-require "bundler/setup"
-require "top_CA_wineries"
+# require "bundler/setup"
+require_relative "../lib/environment.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
