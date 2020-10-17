@@ -3,6 +3,7 @@ class TopCAWineries::CLI
         greet_and_display
         display_wineries
         display_winery_info
+        next_action?
     end
         
 
@@ -42,8 +43,18 @@ class TopCAWineries::CLI
     end
 
     def display_winery_info
+        puts "Enter the number of the winery you would like more info on:"
+        input = gets.strip.to_i
+        if input == 1
+            puts "Campovida: shf;aehf;asdhfasdhf;asdhfsadohf"
+        end
+    end
+
+    def next_action?
+        # Ask user if they would like to go back to the previous winery menu or the main region menu or exit
         
     end
+        
         
 end
         
