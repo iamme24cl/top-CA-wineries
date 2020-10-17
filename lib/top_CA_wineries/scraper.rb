@@ -1,12 +1,11 @@
 class TopCAWineries::Scraper
-    attr_accessor 
+    
     @@doc = []
     @@region_array = []
     @@winery_array = []
     @@winery_info_array = []
 
-    def initialize
-    end
+   
         
     def self.scrape
         site = "https://thepress.sfchronicle.com/article/52-california-wineries-2019/" 
@@ -31,7 +30,7 @@ class TopCAWineries::Scraper
         array = @@doc.css("div.entry-content p").map do |info|
             info.text
         end
-        # remove \n from info
+        # remove \n from info and replace with :
         modified_array = array.map do |info|
             info.gsub("\n", ": ")
         end
