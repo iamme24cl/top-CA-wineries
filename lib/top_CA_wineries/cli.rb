@@ -1,4 +1,7 @@
 class TopCAWineries::CLI
+
+    REVIEWS_URL = "https://thepress.sfchronicle.com/review/"
+
     def call
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
         puts "\n"
@@ -28,6 +31,8 @@ class TopCAWineries::CLI
 
         case input
         when 1
+            puts "Here are some of the best wineries in Mendocino County"
+            puts "\n"
             puts <<-DOC.gsub /^\s*/, ""
             1. Campovida
             2. Drew
@@ -36,7 +41,7 @@ class TopCAWineries::CLI
             5. Pennyroyal Farm
             6. Phillips Farm
             7. Roederer
-            8. Terra Savia
+            8. Terra Saviaclear
         DOC
         
         end
@@ -52,28 +57,40 @@ class TopCAWineries::CLI
             but if you’re driving north it’s worth stopping at the bucolic winery in Hopland, where you can wander among many\n
             acres of trees with a glass of wine in hand. This would be a great place for a picnic. While you’re in the area,\n
             consider stopping at the owners’ nearby restaurant and inn, Piazza de Campovida."
+            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}campovida"
         when 2
             puts "Drew: Jason and Molly Drew make some of the best wines in Mendocino County, and they’re\n
             known — rightfully so — for their gamey, meaty Syrah. Visit their small, storefront tasting room in the Madrones\n
             complex in Philo, near the deep end of Anderson Valley, though many of their wines come from outside of this\n
             Pinot-centric valley. The Valenti Ranch Syrah is a special treat."
+            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}drew"
         end
         puts "\n"
     end
 
     def next_action?
-        # Ask user if they would like to go back to the previous winery menu or the main region menu or exit
         puts "Would you like see the main menu again?" 
         puts "Type 'y' for yes or type 'n' to exit the program"
-    
-        input = gets.strip.downcase
-        if input == 'y'
-            self.call
-        # elsif input == 'n'
-            
-        end
+
+        # def next_action?
+        #     # Ask user if they would like to go back to the previous winery menu or the main region menu or exit
+        learn_again = gets.chomp.downcase
+        puts "\n"
+
+        while learn_again == 'y'
+            call
+            if learn_again == 'n'
+                break
+            elsif learn_again != 'y' || learn_again != 'n'
+                break
+            end
+        end               
     end
+    
+           
 end
+        
+      
         
         
         
