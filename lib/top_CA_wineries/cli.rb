@@ -86,9 +86,9 @@ class TopCAWineries::CLI
             end
         end               
     end
+end
     
            
-end
         
       
         
