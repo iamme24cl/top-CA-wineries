@@ -81,7 +81,7 @@ class TopCAWineries::CLI
             call
             if learn_again == 'n'
                 break
-            elsif learn_again != 'y' || learn_again != 'n'
+            else
                 break
             end
         end               
