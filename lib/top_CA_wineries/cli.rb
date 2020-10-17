@@ -13,11 +13,12 @@ class TopCAWineries::CLI
         # region_array.each_with_index do |region, i|
         #     puts "#{i + 1}. #{region}"
         # end
-        display = TopCAWineries::WineRegion.create_from_collection(region_array)
-        display.each_with_index do |region, i|
+        display_region = TopCAWineries::WineRegion.create_from_collection(region_array)
+        display_region.each_with_index do |region, i|
             puts "#{i + 1}. #{region}"
         end
-        puts "\n"   
+        puts "\n" 
+        puts TopCAWineries::WineRegion.all  
 
 
         sleep 2
@@ -31,6 +32,9 @@ class TopCAWineries::CLI
        
 
     def display_wineries
+        # TopCAWineries::Scraper.scrape
+        winery_array = TopCAWineries::Scraper.winery_array
+        # TopCAWineries::Winery.create_from_collection(winery_array)
         puts "Enter the region number:"
         input = gets.chomp.to_i
         puts "\n \n"
@@ -39,16 +43,11 @@ class TopCAWineries::CLI
         when 1
             puts "Here are some of the best wineries in Mendocino County"
             puts "\n"
-            puts <<-DOC.gsub /^\s*/, ""
-            1. Campovida
-            2. Drew
-            3. Foursight
-            4. Longmeadow Ranch
-            5. Pennyroyal Farm
-            6. Phillips Farm
-            7. Roederer
-            8. Terra Saviaclear
-        DOC
+            display_medocino = TopCAWineries::Winery.create_from_collection(winery_array)
+            display_medocino.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
+            
         when 2
             puts "Sonoma"
         when 3

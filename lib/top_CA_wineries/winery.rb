@@ -6,7 +6,7 @@ class TopCAWineries::Winery
         winery_array.each do |winery|
             self.name = winery
         end
-        save
+        @@all << self
     end
 
     def self.create_from_collection(winery_array)
@@ -15,9 +15,13 @@ class TopCAWineries::Winery
         end
     end
 
-    def save
-        @@all << self
+    def self.mendocino_wineries
+        self.all[0..6]
     end
+
+    # def save
+    #     @@all << self
+    # end
 
     def self.all
         @@all
