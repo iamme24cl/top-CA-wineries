@@ -18,9 +18,6 @@ class TopCAWineries::CLI
             puts "#{i + 1}. #{region}"
         end
         puts "\n" 
-        puts TopCAWineries::WineRegion.all  
-
-
         sleep 2
 
         display_wineries
@@ -33,7 +30,7 @@ class TopCAWineries::CLI
 
     def display_wineries
         # TopCAWineries::Scraper.scrape
-        winery_array = TopCAWineries::Scraper.winery_array
+        winery_array = TopCAWineries::Scraper.winery_array[0..6]
         # TopCAWineries::Winery.create_from_collection(winery_array)
         puts "Enter the region number:"
         input = gets.chomp.to_i
