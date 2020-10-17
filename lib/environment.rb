@@ -5,7 +5,7 @@ require_relative "./top_CA_wineries/region"
 require_relative "./top_CA_wineries/winery"
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
+# require 'pry'
 
 
 module TopCAWineries

@@ -1,16 +1,8 @@
 class TopCAWineries::CLI
     def call
-        greet_and_display
-        display_wineries
-        display_winery_info
-        next_action?
-    end
-        
-
-
-    def greet_and_display
+        puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
+        puts "\n"
         puts <<-DOC.gsub /^\s*/, ""
-            Welcome to TopCAWineries! Let's learn about some of the best California wineries.
             Pick a Region from below to see all the best wineries there.
             1. Mendocino County
             2. Sonoma County
@@ -19,44 +11,87 @@ class TopCAWineries::CLI
             5. Monterey and the Santa Cruz Mountains
             6. Paso Robles and San Luis Obispo County
         DOC
+        sleep 2
+
+        display_wineries
+        
+        display_winery_info
+        next_action?
     end
+              
+       
 
     def display_wineries
-        puts <<-DOC.gsub /^\s*/, ""
-            Enter the number of the region you would like to see wineries in:
-        DOC
-       
-        input = gets.strip.to_i
-    
-        if input == 1
-            puts <<-DOC.gsub /^\s*/, ""
-                1. Campovida
-                2. Drew
-                3. Foursight
-                4. Longmeadow Ranch
-                5. Pennyroyal Farm
-                6. Phillips Farm
-                7. Roederer
-                8. Terra Savia
-            DOC
-        end
-    end
 
+        input = gets.chomp.to_i
+        puts "\n \n"
+
+        case input
+        when 1
+            puts <<-DOC.gsub /^\s*/, ""
+            1. Campovida
+            2. Drew
+            3. Foursight
+            4. Longmeadow Ranch
+            5. Pennyroyal Farm
+            6. Phillips Farm
+            7. Roederer
+            8. Terra Savia
+        DOC
+        
+        end
+        puts "\n"
+    end
+    
     def display_winery_info
         puts "Enter the number of the winery you would like more info on:"
         input = gets.strip.to_i
-        if input == 1
-            puts "Campovida: shf;aehf;asdhfasdhf;asdhfsadohf"
+        case input 
+        when 1
+            puts "Campovida: You can taste the Campovida wines at the winery’s tasting bar near Jack London Square in Oakland,\n
+            but if you’re driving north it’s worth stopping at the bucolic winery in Hopland, where you can wander among many\n
+            acres of trees with a glass of wine in hand. This would be a great place for a picnic. While you’re in the area,\n
+            consider stopping at the owners’ nearby restaurant and inn, Piazza de Campovida."
+        when 2
+            puts "Drew: Jason and Molly Drew make some of the best wines in Mendocino County, and they’re\n
+            known — rightfully so — for their gamey, meaty Syrah. Visit their small, storefront tasting room in the Madrones\n
+            complex in Philo, near the deep end of Anderson Valley, though many of their wines come from outside of this\n
+            Pinot-centric valley. The Valenti Ranch Syrah is a special treat."
         end
+        puts "\n"
     end
 
     def next_action?
         # Ask user if they would like to go back to the previous winery menu or the main region menu or exit
-        
+        puts "Would you like see the main menu again?" 
+        puts "Type 'y' for yes or type 'n' to exit the program"
+    
+        input = gets.strip.downcase
+        if input == 'y'
+            self.call
+        # elsif input == 'n'
+            
+        end
     end
-        
-        
 end
+        
+        
+        
+        
+        
+    
+        
+    
+        
+        
+
+         
+    
+    
+  
+        
+   
+
         
 
     

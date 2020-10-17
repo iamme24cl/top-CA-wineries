@@ -6,7 +6,7 @@ Top CA Wineries:
 4. Ask user which winery they would like more information on
 5. Get user input
 6. Display the information on the winery that the user requested
-5. Ask user if they would like to go back to the previous winery menu or the main region menu or exit
+5. Ask user if they would like to go back to the main region menu or exit
 
 # Scrape data at:
 1. url: "https://thepress.sfchronicle.com/article/52-california-wineries-2019/"
