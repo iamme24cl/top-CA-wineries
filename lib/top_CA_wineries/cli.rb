@@ -18,9 +18,15 @@ class TopCAWineries::CLI
         TopCAWineries::Scraper.scrape
         # TopCAWineries::Scraper.region_array
         region_array = TopCAWineries::Scraper.region_array
-        region_array.each_with_index do |region, i|
+        # region_array.each_with_index do |region, i|
+        #     puts "#{i + 1}. #{region}"
+        # end
+        display = TopCAWineries::WineRegion.create_from_collection(region_array)
+        display.each_with_index do |region, i|
             puts "#{i + 1}. #{region}"
         end
+        puts "\n"   
+
 
         sleep 2
 
