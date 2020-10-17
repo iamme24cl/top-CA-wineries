@@ -5,15 +5,7 @@ class TopCAWineries::CLI
     def call
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
         puts "\n"
-        # puts <<-DOC.gsub /^\s*/, ""
-        #     Pick a Region from below to see all the best wineries there.
-        #     1. Mendocino County
-        #     2. Sonoma County
-        #     3. Napa Valley
-        #     4. East Bay and Livermore
-        #     5. Monterey and the Santa Cruz Mountains
-        #     6. Paso Robles and San Luis Obispo County
-        # DOC
+        
         puts "Pick a Region from below to see all the best wineries there."
         TopCAWineries::Scraper.scrape
         # TopCAWineries::Scraper.region_array
@@ -57,10 +49,21 @@ class TopCAWineries::CLI
             7. Roederer
             8. Terra Saviaclear
         DOC
-        
+        when 2
+            puts "Sonoma"
+        when 3
+            puts "Napa"
+        when 4
+            puts "East Bay"
+        when 5
+            puts "Monterey"
+        else
+            puts "Paso Robles"
         end
         puts "\n"
     end
+
+        
     
     def display_winery_info
         puts "Enter the number of the winery you would like more info on:"

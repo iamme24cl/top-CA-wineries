@@ -1,5 +1,5 @@
 class TopCAWineries::WineRegion
-    attr_accessor :name, :wineries
+    attr_accessor :name
     @@all = []
 
     def initialize(region_array)
