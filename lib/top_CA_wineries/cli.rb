@@ -4,7 +4,7 @@ class TopCAWineries::CLI
 
     def call
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
-        puts "Pick a Region from below to see all the best wineries there."
+        puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
         
         TopCAWineries::Scraper.scrape
@@ -52,10 +52,14 @@ class TopCAWineries::CLI
             input = gets.chomp.downcase
             if input == 'y'
                 display_winery_info = descriptions[11..18]
+                display_winery_info.delete_if {|s| s.include?("Long Meadow Ranch")}
                 display_winery_info.each_with_index do |info, i|
                     puts "#{i + 1}. #{info}"
                     puts "\n"
                 end
+            elsif input == 'n'
+                call
+                
             end
             # puts "Enter the number of winery you would like more information on:"
             # winery_input = gets.strip.to_i
@@ -88,15 +92,6 @@ class TopCAWineries::CLI
             #     puts "\n"
             #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
             # end
-
-
-            
-           
-            
-            
-
-
-            
         when 2
             puts "Here are some of the best wineries in Sonoma County"
             puts "\n"
@@ -184,6 +179,15 @@ class TopCAWineries::CLI
         end               
     end
 end
+
+
+            
+           
+            
+            
+
+
+            
     
            
         
