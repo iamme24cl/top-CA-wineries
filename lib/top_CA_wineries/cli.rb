@@ -3,6 +3,12 @@ class TopCAWineries::CLI
     REVIEWS_URL = "https://thepress.sfchronicle.com/review"
 
     def call
+        greet_and_display
+        display_wineries
+        next_action?
+    end
+        
+    def greet_and_display
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
@@ -14,16 +20,9 @@ class TopCAWineries::CLI
         display_region.each_with_index do |region, i|
             puts "#{i + 1}. #{region}"
         end
-         
-        # sleep 1
 
-        display_wineries
-        next_action?
     end
              
-              
-       
-
     def display_wineries
         puts "\n"
         winery_array = TopCAWineries::Scraper.winery_array
@@ -154,11 +153,11 @@ class TopCAWineries::CLI
                 call
             end
         end
+        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL}"
+        puts "\n"
     end
         
     def next_action?
-        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL}"
-        puts "\n"
         puts "Would you like see the main menu again?" 
         puts "Type 'y' for yes or type 'n' to exit the program"
 
@@ -175,6 +174,9 @@ class TopCAWineries::CLI
         end               
     end
 end
+        
+       
+
 
         
     
@@ -204,6 +206,9 @@ end
         
         
 
+        
+    
+
          
     
     
@@ -212,6 +217,7 @@ end
    
 
         
+              
 
     
 

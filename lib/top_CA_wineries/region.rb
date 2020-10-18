@@ -9,6 +9,11 @@ class TopCAWineries::WineRegion
         save      
     end
 
+    def self.create_from_collection(region_array)
+        region_array.each do |region|
+            TopCAWineries::WineRegion.new(region_array)
+        end
+    end
 
     def save
         @@all << self
@@ -18,9 +23,4 @@ class TopCAWineries::WineRegion
         @@all
     end
 
-    def self.create_from_collection(region_array)
-        region_array.each do |region|
-            TopCAWineries::WineRegion.new(region_array)
-        end
-    end
 end
