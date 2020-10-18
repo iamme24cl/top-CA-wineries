@@ -48,37 +48,46 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "\n"
-            puts "Enter the number of winery you would like more information on:"
-            winery_input = gets.strip.to_i
-            if winery_input == 1
-                puts descriptions[11]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            elsif winery_input == 2
-                puts descriptions[12]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            elsif winery_input == 3
-                puts descriptions[13]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            elsif winery_input == 4
-                puts descriptions[15]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            elsif winery_input == 5
-                puts descriptions[16]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            elsif winery_input == 6
-                puts descriptions[17]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            else 
-                puts descriptions[18]
-                puts "\n"
-                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[11..18]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
             end
+            # puts "Enter the number of winery you would like more information on:"
+            # winery_input = gets.strip.to_i
+            # if winery_input == 1
+            #     puts descriptions[11]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # elsif winery_input == 2
+            #     puts descriptions[12]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # elsif winery_input == 3
+            #     puts descriptions[13]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # elsif winery_input == 4
+            #     puts descriptions[15]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # elsif winery_input == 5
+            #     puts descriptions[16]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # elsif winery_input == 6
+            #     puts descriptions[17]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # else 
+            #     puts descriptions[18]
+            #     puts "\n"
+            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            # end
 
 
             
