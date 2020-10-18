@@ -34,7 +34,16 @@ class TopCAWineries::Scraper
         modified_array = array.map do |info|
             info.gsub("\n", ": ")
         end
-        @@winery_info_array = modified_array
+        @@winery_info_array << modified_array[11..18] # Mendocino
+        @@winery_info_array << modified_array[21..32] # Sonoma
+        @@winery_info_array << modified_array[35..45] # Napa
+        @@winery_info_array << modified_array[48..53] # East Bay
+        @@winery_info_array << modified_array[56..60] # Monterey
+        @@winery_info_array << modified_array[64..73] # Paso Robles 
+        # @@winery_info_array.collect! do |info|
+        #     info.join
+        # end
+        @@winery_info_array
     end
 end
 
@@ -47,4 +56,3 @@ end
 
 
 
-# s = TopCAWineries::Scraper.new
