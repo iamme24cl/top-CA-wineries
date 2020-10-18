@@ -4,9 +4,9 @@ class TopCAWineries::CLI
 
     def call
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
+        puts "Pick a Region from below to see all the best wineries there."
         puts "\n"
         
-        puts "Pick a Region from below to see all the best wineries there."
         TopCAWineries::Scraper.scrape
         # TopCAWineries::Scraper.region_array
         region_array = TopCAWineries::Scraper.region_array
@@ -17,12 +17,12 @@ class TopCAWineries::CLI
         display_region.each_with_index do |region, i|
             puts "#{i + 1}. #{region}"
         end
-        puts "\n" 
-        sleep 2
+         
+        sleep 1
 
         display_wineries
         
-        display_winery_info
+        # display_winery_info
         next_action?
     end
               
@@ -30,34 +30,78 @@ class TopCAWineries::CLI
 
     def display_wineries
         # TopCAWineries::Scraper.scrape
-        winery_array = TopCAWineries::Scraper.winery_array[0..6]
         # TopCAWineries::Winery.create_from_collection(winery_array)
+        puts "\n"
+        winery_array = TopCAWineries::Scraper.winery_array
         puts "Enter the region number:"
         input = gets.chomp.to_i
-        puts "\n \n"
-
+        puts "\n"
+        
         case input
         when 1
             puts "Here are some of the best wineries in Mendocino County"
             puts "\n"
-            display_medocino = TopCAWineries::Winery.create_from_collection(winery_array)
+            mendocino = winery_array[0..6]
+            display_medocino = TopCAWineries::Winery.create_from_collection(mendocino)
             display_medocino.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
             end
+            puts "\n"
+            puts "Enter the number of winery you would like more information on:"
+            winery_input = gets.strip.to_i
+            if winery_input == 1
+                puts "Campovida: You can taste the Campovida wines at the winery’s tasting bar near Jack London Square in Oakland,\n
+            but if you’re driving north it’s worth stopping at the bucolic winery in Hopland, where you can wander among many\n
+            acres of trees with a glass of wine in hand. This would be a great place for a picnic. While you’re in the area,\n
+            consider stopping at the owners’ nearby restaurant and inn, Piazza de Campovida."
+            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}campovida"
+            end
+
             
         when 2
-            puts "Sonoma"
+            puts "Here are some of the best wineries in Sonoma County"
+            puts "\n"
+            sonoma = winery_array[7..18]
+            display_sonoma = TopCAWineries::Winery.create_from_collection(sonoma)
+            display_sonoma.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
         when 3
-            puts "Napa"
+            puts "Here are some of the best wineries in Napa Valley"
+            puts "\n"
+            napa = winery_array[19..29]
+            display_napa = TopCAWineries::Winery.create_from_collection(napa)
+            display_napa.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
+
         when 4
-            puts "East Bay"
+            puts "Here are some of the best wineries in East Bay and Livermore"
+            puts "\n"
+            east_bay = winery_array[30..35]
+            display_east_bay = TopCAWineries::Winery.create_from_collection(east_bay)
+            display_east_bay.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
         when 5
-            puts "Monterey"
+            puts "Here are some of the best wineries in Monterey and the Santa Cruz Mountains"
+            puts "\n"
+            monterey = winery_array[36..40]
+            display_monterey = TopCAWineries::Winery.create_from_collection(monterey)
+            display_monterey.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
         else
-            puts "Paso Robles"
+            puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
+            puts "\n"
+            paso_robles = winery_array[41..50]
+            display_paso_robles = TopCAWineries::Winery.create_from_collection(paso_robles)
+            display_paso_robles.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery}"
+            end
         end
-        puts "\n"
     end
+        
 
         
     
@@ -82,6 +126,7 @@ class TopCAWineries::CLI
     end
 
     def next_action?
+        puts "\n"
         puts "Would you like see the main menu again?" 
         puts "Type 'y' for yes or type 'n' to exit the program"
 

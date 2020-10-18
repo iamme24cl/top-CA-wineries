@@ -22,5 +22,11 @@ Top CA Wineries:
     e. Monterey: [56..60]
     f. Paso Robles: [64..73]
 
-# Winery Info:
+# Wineries
+    a. Mendocino: [0..6]
+    b. Sonoma: [7..18]
+    c. Napa: [19..29]
+    d. East Bay: [30..35]
+    e. Monterey: [36..40]
+    f. Paso Robles: [41.50]
 
