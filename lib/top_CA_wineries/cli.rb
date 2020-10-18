@@ -3,12 +3,12 @@ class TopCAWineries::CLI
     REVIEWS_URL = "https://thepress.sfchronicle.com/review"
 
     def call
-        greet_and_display
-        display_wineries
+        create_and_display_regions
+        create_and_display_wineries
         next_action?
     end
         
-    def greet_and_display
+    def create_and_display_regions
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
@@ -18,12 +18,12 @@ class TopCAWineries::CLI
         
         display_region = TopCAWineries::WineRegion.create_from_collection(region_array)
         display_region.each_with_index do |region, i|
-            puts "#{i + 1}. #{region}"
+            puts "#{i + 1}. #{region.colorize(:red)}"
         end
 
     end
              
-    def display_wineries
+    def create_and_display_wineries
         winery_array = TopCAWineries::Scraper.winery_array
         descriptions = TopCAWineries::Winery.descriptions
         
@@ -154,7 +154,7 @@ class TopCAWineries::CLI
                 call
             end
         end
-        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL}"
+        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
         puts "\n"
     end
         
