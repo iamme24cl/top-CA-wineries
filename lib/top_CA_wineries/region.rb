@@ -2,16 +2,15 @@ class TopCAWineries::WineRegion
     attr_accessor :name
     @@all = []
 
-    def initialize(region_array)
-        region_array.each do |region|
-            self.name = region
-        end
+    def initialize(region)
+        self.name = region
         save      
     end
 
+
     def self.create_from_collection(region_array)
         region_array.each do |region|
-            TopCAWineries::WineRegion.new(region_array)
+            TopCAWineries::WineRegion.new(region)
         end
     end
 

@@ -13,12 +13,13 @@ class TopCAWineries::CLI
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
         
-        # TopCAWineries::Scraper.scrape
-        region_array = TopCAWineries::Scraper.region_array
         
-        display_region = TopCAWineries::WineRegion.create_from_collection(region_array)
+        region_array = TopCAWineries::Scraper.region_array
+        TopCAWineries::WineRegion.create_from_collection(region_array)
+        
+        display_region = TopCAWineries::WineRegion.all
         display_region.each_with_index do |region, i|
-            puts "#{i + 1}. #{region.colorize(:red)}"
+            puts "#{i + 1}. #{region.name.colorize(:red)}"
         end
 
     end

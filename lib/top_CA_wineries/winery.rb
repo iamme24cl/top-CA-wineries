@@ -1,18 +1,19 @@
 class TopCAWineries::Winery
-    attr_accessor :name, :description
+    attr_accessor :name
+
     @@all = []
     @@all_description = []
 
-    def initialize(winery_array)
-        winery_array.each do |winery|
-            self.name = winery
-        end
+    def initialize(winery)
+        self.name = winery
         save
     end
+        
+        
 
     def self.create_from_collection(winery_array)
         winery_array.each do |winery|
-            TopCAWineries::Winery.new(winery_array)
+            TopCAWineries::Winery.new(winery)
         end
     end
 
