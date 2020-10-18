@@ -8,11 +8,8 @@ class TopCAWineries::CLI
         puts "\n"
         
         TopCAWineries::Scraper.scrape
-        # TopCAWineries::Scraper.region_array
         region_array = TopCAWineries::Scraper.region_array
-        # region_array.each_with_index do |region, i|
-        #     puts "#{i + 1}. #{region}"
-        # end
+        
         display_region = TopCAWineries::WineRegion.create_from_collection(region_array)
         display_region.each_with_index do |region, i|
             puts "#{i + 1}. #{region}"
@@ -21,16 +18,13 @@ class TopCAWineries::CLI
         # sleep 1
 
         display_wineries
-        
-        # display_winery_info
         next_action?
     end
+             
               
        
 
     def display_wineries
-        # TopCAWineries::Scraper.scrape
-        # TopCAWineries::Winery.create_from_collection(winery_array)
         puts "\n"
         winery_array = TopCAWineries::Scraper.winery_array
         descriptions = TopCAWineries::Winery.descriptions
@@ -59,39 +53,8 @@ class TopCAWineries::CLI
                 end
             elsif input == 'n'
                 call
-                
             end
-            # puts "Enter the number of winery you would like more information on:"
-            # winery_input = gets.strip.to_i
-            # if winery_input == 1
-            #     puts descriptions[11]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # elsif winery_input == 2
-            #     puts descriptions[12]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # elsif winery_input == 3
-            #     puts descriptions[13]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # elsif winery_input == 4
-            #     puts descriptions[15]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # elsif winery_input == 5
-            #     puts descriptions[16]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # elsif winery_input == 6
-            #     puts descriptions[17]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # else 
-            #     puts descriptions[18]
-            #     puts "\n"
-            #     puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
-            # end
+            
         when 2
             puts "Here are some of the best wineries in Sonoma County"
             puts "\n"
@@ -100,6 +63,18 @@ class TopCAWineries::CLI
             display_sonoma.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
             end
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[21..32]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
+            elsif input == 'n'
+                call
+            end
+         
         when 3
             puts "Here are some of the best wineries in Napa Valley"
             puts "\n"
@@ -107,6 +82,17 @@ class TopCAWineries::CLI
             display_napa = TopCAWineries::Winery.create_from_collection(napa)
             display_napa.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
+            end
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[35..45]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
+            elsif input == 'n'
+                call
             end
 
         when 4
@@ -117,6 +103,18 @@ class TopCAWineries::CLI
             display_east_bay.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
             end
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[48..53]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
+            elsif input == 'n'
+                call
+            end
+
         when 5
             puts "Here are some of the best wineries in Monterey and the Santa Cruz Mountains"
             puts "\n"
@@ -124,6 +122,17 @@ class TopCAWineries::CLI
             display_monterey = TopCAWineries::Winery.create_from_collection(monterey)
             display_monterey.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
+            end
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[56..60]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
+            elsif input == 'n'
+                call
             end
         else
             puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
@@ -133,39 +142,26 @@ class TopCAWineries::CLI
             display_paso_robles.each_with_index do |winery, i|
                 puts "#{i + 1}. #{winery}"
             end
+            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            input = gets.chomp.downcase
+            if input == 'y'
+                display_winery_info = descriptions[64..73]
+                display_winery_info.each_with_index do |info, i|
+                    puts "#{i + 1}. #{info}"
+                    puts "\n"
+                end
+            elsif input == 'n'
+                call
+            end
         end
     end
         
-
-        
-    
-    def display_winery_info
-        puts "Enter the number of the winery you would like more info on:"
-        input = gets.strip.to_i
-        case input 
-        when 1
-            puts "Campovida: You can taste the Campovida wines at the winery’s tasting bar near Jack London Square in Oakland,\n
-            but if you’re driving north it’s worth stopping at the bucolic winery in Hopland, where you can wander among many\n
-            acres of trees with a glass of wine in hand. This would be a great place for a picnic. While you’re in the area,\n
-            consider stopping at the owners’ nearby restaurant and inn, Piazza de Campovida."
-            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}campovida"
-        when 2
-            puts "Drew: Jason and Molly Drew make some of the best wines in Mendocino County, and they’re\n
-            known — rightfully so — for their gamey, meaty Syrah. Visit their small, storefront tasting room in the Madrones\n
-            complex in Philo, near the deep end of Anderson Valley, though many of their wines come from outside of this\n
-            Pinot-centric valley. The Valenti Ranch Syrah is a special treat."
-            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}drew"
-        end
-        puts "\n"
-    end
-
     def next_action?
+        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL}"
         puts "\n"
         puts "Would you like see the main menu again?" 
         puts "Type 'y' for yes or type 'n' to exit the program"
 
-        # def next_action?
-        #     # Ask user if they would like to go back to the previous winery menu or the main region menu or exit
         learn_again = gets.chomp.downcase
         puts "\n"
 
@@ -179,6 +175,11 @@ class TopCAWineries::CLI
         end               
     end
 end
+
+        
+    
+    
+
 
 
             
