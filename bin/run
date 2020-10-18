@@ -2,4 +2,6 @@
 
 require_relative "../lib/environment"
 
+TopCAWineries::Scraper.scrape
+
 TopCAWineries::CLI.new.call

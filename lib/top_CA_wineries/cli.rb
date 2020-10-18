@@ -13,7 +13,7 @@ class TopCAWineries::CLI
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
         
-        TopCAWineries::Scraper.scrape
+        # TopCAWineries::Scraper.scrape
         region_array = TopCAWineries::Scraper.region_array
         
         display_region = TopCAWineries::WineRegion.create_from_collection(region_array)
@@ -29,7 +29,7 @@ class TopCAWineries::CLI
         
         puts "\n"
         puts "Enter the region number:"
-        input = gets.chomp.to_i       
+        input = gets.strip.to_i       
         puts "\n"
         
         case input
@@ -43,7 +43,7 @@ class TopCAWineries::CLI
             end
             puts "\n"
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[11..18]
                 display_winery_info.delete_if {|s| s.include?("Long Meadow Ranch")}
@@ -64,7 +64,7 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[21..32]
                 display_winery_info.each_with_index do |info, i|
@@ -84,7 +84,7 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[35..45]
                 display_winery_info.each_with_index do |info, i|
@@ -104,7 +104,7 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[48..53]
                 display_winery_info.each_with_index do |info, i|
@@ -124,7 +124,7 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[56..60]
                 display_winery_info.each_with_index do |info, i|
@@ -143,7 +143,7 @@ class TopCAWineries::CLI
                 puts "#{i + 1}. #{winery}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
-            input = gets.chomp.downcase
+            input = gets.strip.downcase
             if input == 'y'
                 display_winery_info = descriptions[64..73]
                 display_winery_info.each_with_index do |info, i|
@@ -160,9 +160,9 @@ class TopCAWineries::CLI
         
     def next_action?
         puts "Would you like see the main menu again?" 
-        puts "Type 'y' for yes or type 'n' to exit the program:"
+        puts "Type 'y' for yes or type 'n' to exit the program:".colorize(:red)
 
-        learn_again = gets.chomp.downcase
+        learn_again = gets.strip.downcase
         puts "\n"
 
         unless learn_again == 'n'
