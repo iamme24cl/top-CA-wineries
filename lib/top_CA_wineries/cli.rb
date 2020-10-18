@@ -1,6 +1,6 @@
 class TopCAWineries::CLI
 
-    REVIEWS_URL = "https://thepress.sfchronicle.com/review/"
+    REVIEWS_URL = "https://thepress.sfchronicle.com/review"
 
     def call
         puts "Welcome to TopCAWineries! Let's learn about some of the best California wineries."
@@ -18,7 +18,7 @@ class TopCAWineries::CLI
             puts "#{i + 1}. #{region}"
         end
          
-        sleep 1
+        # sleep 1
 
         display_wineries
         
@@ -33,6 +33,7 @@ class TopCAWineries::CLI
         # TopCAWineries::Winery.create_from_collection(winery_array)
         puts "\n"
         winery_array = TopCAWineries::Scraper.winery_array
+        descriptions = TopCAWineries::Winery.descriptions
         puts "Enter the region number:"
         input = gets.chomp.to_i
         puts "\n"
@@ -50,12 +51,41 @@ class TopCAWineries::CLI
             puts "Enter the number of winery you would like more information on:"
             winery_input = gets.strip.to_i
             if winery_input == 1
-                puts "Campovida: You can taste the Campovida wines at the winery’s tasting bar near Jack London Square in Oakland,\n
-            but if you’re driving north it’s worth stopping at the bucolic winery in Hopland, where you can wander among many\n
-            acres of trees with a glass of wine in hand. This would be a great place for a picnic. While you’re in the area,\n
-            consider stopping at the owners’ nearby restaurant and inn, Piazza de Campovida."
-            puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}campovida"
+                puts descriptions[11]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            elsif winery_input == 2
+                puts descriptions[12]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            elsif winery_input == 3
+                puts descriptions[13]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            elsif winery_input == 4
+                puts descriptions[15]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            elsif winery_input == 5
+                puts descriptions[16]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            elsif winery_input == 6
+                puts descriptions[17]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
+            else 
+                puts descriptions[18]
+                puts "\n"
+                puts "More information and reviews for this winery can be found at: #{REVIEWS_URL}"
             end
+
+
+            
+           
+            
+            
+
 
             
         when 2
