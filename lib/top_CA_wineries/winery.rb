@@ -17,6 +17,14 @@ class TopCAWineries::Winery
         end
     end
 
+    def self.check_and_create_from_collection(winery_array)
+        if self.all == []
+            self.create_from_collection(winery_array)
+        else
+            self.all
+        end
+    end
+
     def self.descriptions
         @@all_description = TopCAWineries::Scraper.winery_info_array
     end

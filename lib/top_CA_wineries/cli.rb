@@ -13,19 +13,21 @@ class TopCAWineries::CLI
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
         
-        
         region_array = TopCAWineries::Scraper.region_array
-        TopCAWineries::WineRegion.create_from_collection(region_array)
+        TopCAWineries::WineRegion.check_and_create_from_collection(region_array)
         
         display_region = TopCAWineries::WineRegion.all
         display_region.each_with_index do |region, i|
             puts "#{i + 1}. #{region.name.colorize(:red)}"
         end
-
     end
+
+        
              
     def create_and_display_wineries
         winery_array = TopCAWineries::Scraper.winery_array
+        TopCAWineries::Winery.check_and_create_from_collection(winery_array)
+        wineries = TopCAWineries::Winery.all
         descriptions = TopCAWineries::Winery.descriptions
         
         puts "\n"
@@ -37,10 +39,10 @@ class TopCAWineries::CLI
         when 1
             puts "Here are some of the best wineries in Mendocino County"
             puts "\n"
-            mendocino = winery_array[0..6]
-            display_medocino = TopCAWineries::Winery.create_from_collection(mendocino)
-            display_medocino.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+            display_mendocino = wineries[0..6]
+            # display_medocino = TopCAWineries::Winery.create_from_collection(mendocino)
+            display_mendocino.each_with_index do |winery, i|
+                puts "#{i + 1}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
@@ -59,10 +61,10 @@ class TopCAWineries::CLI
         when 2
             puts "Here are some of the best wineries in Sonoma County"
             puts "\n"
-            sonoma = winery_array[7..18]
-            display_sonoma = TopCAWineries::Winery.create_from_collection(sonoma)
+            display_sonoma = wineries[7..18]
+            # display_sonoma = TopCAWineries::Winery.create_from_collection(sonoma)
             display_sonoma.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+                puts "#{i + 1}. #{winery.name.colorize(:green)}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase
@@ -79,10 +81,10 @@ class TopCAWineries::CLI
         when 3
             puts "Here are some of the best wineries in Napa Valley"
             puts "\n"
-            napa = winery_array[19..29]
-            display_napa = TopCAWineries::Winery.create_from_collection(napa)
+            display_napa = wineries[19..29]
+            # display_napa = TopCAWineries::Winery.create_from_collection(napa)
             display_napa.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+                puts "#{i + 1}. #{winery.name.colorize(:magenta)}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase
@@ -99,10 +101,10 @@ class TopCAWineries::CLI
         when 4
             puts "Here are some of the best wineries in East Bay and Livermore"
             puts "\n"
-            east_bay = winery_array[30..35]
-            display_east_bay = TopCAWineries::Winery.create_from_collection(east_bay)
+            display_east_bay = wineries[30..35]
+            # display_east_bay = TopCAWineries::Winery.create_from_collection(east_bay)
             display_east_bay.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+                puts "#{i + 1}. #{winery.name.colorize(:green)}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase
@@ -119,10 +121,10 @@ class TopCAWineries::CLI
         when 5
             puts "Here are some of the best wineries in Monterey and the Santa Cruz Mountains"
             puts "\n"
-            monterey = winery_array[36..40]
-            display_monterey = TopCAWineries::Winery.create_from_collection(monterey)
+            display_monterey = wineries[36..40]
+            # display_monterey = TopCAWineries::Winery.create_from_collection(monterey)
             display_monterey.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+                puts "#{i + 1}. #{winery.name.colorize(:magenta)}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase
@@ -138,10 +140,10 @@ class TopCAWineries::CLI
         else
             puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
             puts "\n"
-            paso_robles = winery_array[41..50]
-            display_paso_robles = TopCAWineries::Winery.create_from_collection(paso_robles)
+            display_paso_robles = wineries[41..50]
+            # display_paso_robles = TopCAWineries::Winery.create_from_collection(paso_robles)
             display_paso_robles.each_with_index do |winery, i|
-                puts "#{i + 1}. #{winery}"
+                puts "#{i + 1}. #{winery.name.colorize(:green)}"
             end
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase

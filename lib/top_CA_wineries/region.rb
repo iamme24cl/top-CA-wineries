@@ -14,6 +14,15 @@ class TopCAWineries::WineRegion
         end
     end
 
+  
+    def self.check_and_create_from_collection(region_array)
+        if self.all == []
+            self.create_from_collection(region_array)
+        else
+            self.all
+        end
+    end
+
     def save
         @@all << self
     end
