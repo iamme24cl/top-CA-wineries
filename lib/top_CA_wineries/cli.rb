@@ -24,11 +24,12 @@ class TopCAWineries::CLI
     end
              
     def display_wineries
-        puts "\n"
         winery_array = TopCAWineries::Scraper.winery_array
         descriptions = TopCAWineries::Winery.descriptions
+        
+        puts "\n"
         puts "Enter the region number:"
-        input = gets.chomp.to_i
+        input = gets.chomp.to_i       
         puts "\n"
         
         case input
@@ -159,21 +160,17 @@ class TopCAWineries::CLI
         
     def next_action?
         puts "Would you like see the main menu again?" 
-        puts "Type 'y' for yes or type 'n' to exit the program"
+        puts "Type 'y' for yes or type 'n' to exit the program:"
 
         learn_again = gets.chomp.downcase
         puts "\n"
 
-        while learn_again == 'y'
+        unless learn_again == 'n'
             call
-            if learn_again == 'n'
-                break
-            else
-                break
-            end
         end               
     end
 end
+        
         
        
 
