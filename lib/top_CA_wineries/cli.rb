@@ -10,7 +10,7 @@ class TopCAWineries::CLI
         
     def create_and_display_regions
         puts "Welcome to TopCAWineries!" 
-        puts "Let's learn about some of the best wineries in California."
+        puts "Let's check out some of the best wineries in California."
         puts "\n"
         puts "Pick a Region from below to see a list of wineries there."
         puts "\n"
@@ -29,7 +29,6 @@ class TopCAWineries::CLI
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
 
-        # descriptions = TopCAWineries::WineRegion.winery_descriptions
         TopCAWineries::WineRegion.create_winery_descriptions
         
         puts "\n"
@@ -46,23 +45,18 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            # if input == 'y'
-            if input == 'n'
-                call
-            elsif input == 'y'
-                # display_winery_info = descriptions[0]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
                 display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
+            elsif input == "no"
+                call
             end
-            # elsif input == 'n'
-            #     exit
-            # end
             
         when 2
             puts "Here are some of the best wineries in Sonoma County"
@@ -72,16 +66,15 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                # display_winery_info = descriptions[1]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
+            elsif input == 'no'
                 call
             end
          
@@ -93,16 +86,15 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                # display_winery_info = descriptions[2]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
+            elsif input == 'no'
                 call
             end
 
@@ -114,16 +106,15 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                # display_winery_info = descriptions[3]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
+            elsif input == 'no'
                 call
             end
 
@@ -135,16 +126,15 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                # display_winery_info = descriptions[4]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
+            elsif input == 'no'
                 call
             end
         else
@@ -155,16 +145,15 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
+            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                # display_winery_info = descriptions[5]
+            if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
+            elsif input == 'no'
                 call
             end
         end
@@ -172,18 +161,31 @@ class TopCAWineries::CLI
         puts "\n"
     end
         
-    def next_action?
+   def next_action?
         puts "Would you like see the main menu again?" 
-        puts "Type 'y' for yes or type 'n' to exit the program:".colorize(:light_magenta)
+        puts "Type 'yes' or type 'no' to exit the program:".colorize(:light_magenta)
 
         learn_again = gets.strip.downcase
         puts "\n"
 
-        unless learn_again == 'n'
+        unless learn_again == 'no'
             call
         end               
     end
 end
+       
+
+   
+        
+
+
+    
+       
+
+           
+
+            
+            
         
         
         

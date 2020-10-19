@@ -22,10 +22,6 @@ class TopCAWineries::WineRegion
         end
     end
 
-    # def self.winery_descriptions
-    #     @@all_winery_descriptions = TopCAWineries::Scraper.winery_info_array
-    # end
-
     def self.create_winery_descriptions
         descriptions = TopCAWineries::Scraper.winery_info_array 
         if @@descriptions == []
@@ -38,7 +34,6 @@ class TopCAWineries::WineRegion
         end
     end
               
-
     def save
         @@all << self
     end
@@ -47,5 +42,6 @@ class TopCAWineries::WineRegion
         @@all
     end
 end
+
   
 
