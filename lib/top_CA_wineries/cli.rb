@@ -29,7 +29,8 @@ class TopCAWineries::CLI
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
 
-        descriptions = TopCAWineries::WineRegion.winery_descriptions
+        # descriptions = TopCAWineries::WineRegion.winery_descriptions
+        TopCAWineries::WineRegion.create_winery_descriptions
         
         puts "\n"
         puts "Enter the region number:"
@@ -47,16 +48,21 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want to know about these wineries?? Type 'y' for yes or 'n' to go back to the main menu:"
             input = gets.strip.downcase
-            if input == 'y'
-                display_winery_info = descriptions[0]
+            # if input == 'y'
+            if input == 'n'
+                call
+            elsif input == 'y'
+                # display_winery_info = descriptions[0]
+                display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
                 display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
                 display_winery_info.each.with_index(1) do |info, i|
                     puts "#{i}. #{info.colorize(:red)}"
                     puts "\n"
                 end
-            elsif input == 'n'
-                exit
             end
+            # elsif input == 'n'
+            #     exit
+            # end
             
         when 2
             puts "Here are some of the best wineries in Sonoma County"
