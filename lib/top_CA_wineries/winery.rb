@@ -2,15 +2,12 @@ class TopCAWineries::Winery
     attr_accessor :name
 
     @@all = []
-    @@all_description = []
 
     def initialize(winery)
         self.name = winery
         save
     end
         
-        
-
     def self.create_from_collection(winery_array)
         winery_array.each do |winery|
             TopCAWineries::Winery.new(winery)
@@ -25,11 +22,6 @@ class TopCAWineries::Winery
         end
     end
 
-    def self.descriptions
-        @@all_description = TopCAWineries::Scraper.winery_info_array
-    end
-
-    
     def save
         @@all << self
     end
@@ -37,5 +29,7 @@ class TopCAWineries::Winery
     def self.all
         @@all
     end
-
 end
+
+        
+     

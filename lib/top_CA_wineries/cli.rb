@@ -29,7 +29,7 @@ class TopCAWineries::CLI
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
 
-        descriptions = TopCAWineries::Winery.descriptions
+        descriptions = TopCAWineries::WineRegion.winery_descriptions
         
         puts "\n"
         puts "Enter the region number:"

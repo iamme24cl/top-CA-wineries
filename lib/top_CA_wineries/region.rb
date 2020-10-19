@@ -1,6 +1,7 @@
 class TopCAWineries::WineRegion
     attr_accessor :name, :winery_descriptions
     @@all = []
+    @@all_winery_descriptions =[]
 
     def initialize(region)
         self.name = region
@@ -21,6 +22,10 @@ class TopCAWineries::WineRegion
         else
             self.all
         end
+    end
+
+    def self.winery_descriptions
+        @@all_winery_descriptions = TopCAWineries::Scraper.winery_info_array
     end
 
     def save
