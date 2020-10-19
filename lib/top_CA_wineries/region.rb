@@ -1,13 +1,12 @@
 class TopCAWineries::WineRegion
-    attr_accessor :name, :winery_descriptions
+    attr_accessor :name
     @@all = []
-    @@all_winery_descriptions =[]
+    @@all_winery_descriptions = []
 
     def initialize(region)
         self.name = region
         save      
     end
-
 
     def self.create_from_collection(region_array)
         region_array.each do |region|
@@ -15,7 +14,6 @@ class TopCAWineries::WineRegion
         end
     end
 
-  
     def self.check_and_create_from_collection(region_array)
         if self.all == []
             self.create_from_collection(region_array)
@@ -35,5 +33,6 @@ class TopCAWineries::WineRegion
     def self.all
         @@all
     end
-
 end
+  
+
