@@ -2,9 +2,11 @@
 
 Welcome to TopCAWineries. This application provides information on some of the best wineries in California.
 
-It lists all the wine regions in California and lets the user pick the region they would like to see all the wineries from.
+1. It lists all the wine regions in California and lets the user pick the region they would like to see all the wineries from.
 
-It lets the user pick a winery in the region to see information on that winery.
+2. It displays a list of wineries in the requested region
+
+3. It lets user decide if they would like to display information on the wineries listed.
 
 ## Installation
 
