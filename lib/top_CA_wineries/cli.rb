@@ -52,13 +52,9 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
-                display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region1
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -74,12 +70,9 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region2
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -95,12 +88,9 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region3
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -116,12 +106,9 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region4
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -137,16 +124,14 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region5
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
             end
+
         else
             puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
             puts "\n"
@@ -157,12 +142,9 @@ class TopCAWineries::CLI
             puts "\n"
             puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
+
             if input == 'yes'
-                display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
-                display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:cyan)}"
-                    puts "\n"
-                end
+                display_region6
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -170,6 +152,53 @@ class TopCAWineries::CLI
         end
         puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
         puts "\n"
+    end
+    def display_region1
+        display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
+        display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
+    end
+    def display_region2
+        display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
+    end
+
+    def display_region3
+        display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
+    end
+
+    def display_region4
+        display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
+    end
+
+    def display_region5
+        display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
+    end
+
+    def display_region6
+        display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
+        display_winery_info.each.with_index(1) do |info, i|
+            puts "#{i}. #{info.colorize(:cyan)}"
+            puts "\n"
+        end
     end
         
     def next_action?
