@@ -6,7 +6,6 @@ class TopCAWineries::Scraper
     end
     
     def self.region_array
-        region_array = []
         region_array = @@doc.css("div.entry-content h1").map do |region|
             region.text
         end
@@ -14,7 +13,6 @@ class TopCAWineries::Scraper
     end
 
     def self.winery_array
-        winery_array = []
         winery_array = @@doc.css("div.entry-content p a b").map do |winery|
             winery.text
         end
