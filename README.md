@@ -1,6 +1,7 @@
-# TopCAWineries
+## TopCAWineries
 
-Welcome to TopCAWineries. This application provides information on some of the best wineries in California.
+Welcome to TopCAWineries. This ruby gem provides a CLI to view information on some of the best wineries in California
+per "thepress.sfchronicle.com" 52 California wineries you need to visit.
 
 1. It lists all the wine regions in California and lets the user pick the region they would like to see all the wineries from.
 
@@ -10,23 +11,17 @@ Welcome to TopCAWineries. This application provides information on some of the b
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'top_CA_wineries'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install top_CA_wineries
+$ gem install top_CA_wineries
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the following and follow the on screen prompts:
+
+$ ./bin/run
+
+## Demo Video
+[![Demo video]](https://youtu.be/bJeX_-OL6j4)
+
 
 ## Development
 
