@@ -27,7 +27,7 @@ class TopCAWineries::WineRegion
         if @@descriptions == []
             self.all[0].winery_descriptions = descriptions[0]
             self.all[1].winery_descriptions = descriptions[1]
-            self.all[2].winery_descriptions = descriptions[3]
+            self.all[2].winery_descriptions = descriptions[2]
             self.all[3].winery_descriptions = descriptions[3]
             self.all[4].winery_descriptions = descriptions[4]
             self.all[5].winery_descriptions = descriptions[5]

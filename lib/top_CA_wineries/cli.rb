@@ -13,7 +13,7 @@ class TopCAWineries::CLI
     end
         
     def create_and_display_regions
-        puts "Welcome to TopCAWineries!" 
+        puts "Welcome to TopCAWineries!".colorize(:green) 
         puts "Let's check out some of the best wineries in California."
         puts "\n"
         puts "Pick a Region from below to see a list of wineries there."

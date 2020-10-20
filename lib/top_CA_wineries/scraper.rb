@@ -1,7 +1,5 @@
 class TopCAWineries::Scraper
     
-    @@doc = []
-   
     def self.scrape_page
         site = "https://thepress.sfchronicle.com/article/52-california-wineries-2019/" 
         @@doc = Nokogiri::HTML(open(site))
@@ -42,6 +40,8 @@ class TopCAWineries::Scraper
         winery_info_array
     end
 end
+  
+   
    
         
 
