@@ -25,12 +25,12 @@ class TopCAWineries::WineRegion
     def self.create_winery_descriptions
         descriptions = TopCAWineries::Scraper.winery_info_array 
         if @@descriptions == []
-            self.all[0].winery_descriptions = descriptions[0]
-            self.all[1].winery_descriptions = descriptions[1]
-            self.all[2].winery_descriptions = descriptions[2]
-            self.all[3].winery_descriptions = descriptions[3]
-            self.all[4].winery_descriptions = descriptions[4]
-            self.all[5].winery_descriptions = descriptions[5]
+            self.all[0].winery_descriptions = descriptions[0] # Mendocino
+            self.all[1].winery_descriptions = descriptions[1] # Sonoma
+            self.all[2].winery_descriptions = descriptions[2] # Napa
+            self.all[3].winery_descriptions = descriptions[3] # East bay
+            self.all[4].winery_descriptions = descriptions[4] # Monterey
+            self.all[5].winery_descriptions = descriptions[5] # Paso Robles
         end
     end
               

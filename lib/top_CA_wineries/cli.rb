@@ -153,7 +153,8 @@ class TopCAWineries::CLI
         puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
         puts "\n"
     end
-    def display_region1
+
+    def display_region1 # Monterey
         display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
         display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
         display_winery_info.each.with_index(1) do |info, i|
@@ -161,46 +162,42 @@ class TopCAWineries::CLI
             puts "\n"
         end
     end
-    def display_region2
+    def display_region2 # Sonoma
         display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-
-    def display_region3
+    def display_region3 #Napa 
         display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-
-    def display_region4
+    def display_region4 # East Bay
         display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-
-    def display_region5
+    def display_region5 # Monterey
         display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-
-    def display_region6
+    def display_region6 # Paso Robles
         display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-        
+
     def next_action?
         puts "Are you done? Type 'exit' to leave the program or hit any key to see main menu.".colorize(:red)
         @input = gets.strip.downcase
@@ -210,6 +207,10 @@ class TopCAWineries::CLI
         puts "See you! Have a good one!"
     end
 end
+    
+
+
+        
 
        
 
