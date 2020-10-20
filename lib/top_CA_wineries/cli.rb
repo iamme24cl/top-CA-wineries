@@ -3,9 +3,13 @@ class TopCAWineries::CLI
     REVIEWS_URL = "https://thepress.sfchronicle.com/review"
 
     def call
-        create_and_display_regions
-        create_and_display_wineries
-        next_action?
+        @input = nil
+        until @input == "exit"
+            create_and_display_regions
+            create_and_display_wineries
+            next_action?
+        end
+        bye
     end
         
     def create_and_display_regions
@@ -23,6 +27,7 @@ class TopCAWineries::CLI
             puts "#{i}. #{region.name.colorize(:red)}"
         end
     end
+        
 
     def create_and_display_wineries
         winery_array = TopCAWineries::Scraper.winery_array
@@ -45,17 +50,18 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
                 display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == "no"
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
             
         when 2
@@ -66,16 +72,17 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == 'no'
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
          
         when 3
@@ -86,16 +93,17 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == 'no'
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
 
         when 4
@@ -106,16 +114,17 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == 'no'
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
 
         when 5
@@ -126,16 +135,17 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == 'no'
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
         else
             puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
@@ -145,34 +155,33 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want to know about these wineries?? Type 'yes' or 'no' to go back to main menu:"
+            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
             input = gets.strip.downcase
             if input == 'yes'
                 display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
                 display_winery_info.each.with_index(1) do |info, i|
-                    puts "#{i}. #{info.colorize(:red)}"
+                    puts "#{i}. #{info.colorize(:cyan)}"
                     puts "\n"
                 end
-            elsif input == 'no'
-                call
+            elsif input == 'exit'
+                puts "See you! Have a good one!"
+                exit
             end
         end
         puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
         puts "\n"
     end
         
-   def next_action?
-        puts "Would you like see the main menu again?" 
-        puts "Type 'yes' or type 'no' to exit the program:".colorize(:light_magenta)
+    def next_action?
+        puts "Are you done? Type 'exit' to leave the program or hit any key to see main menu.".colorize(:red)
+        @input = gets.strip.downcase
+    end
 
-        learn_again = gets.strip.downcase
-        puts "\n"
-
-        unless learn_again == 'no'
-            call
-        end               
+    def bye
+        puts "See you! Have a good one!"
     end
 end
+
        
 
    
