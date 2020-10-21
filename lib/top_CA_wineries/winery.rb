@@ -15,11 +15,7 @@ class TopCAWineries::Winery
     end
 
     def self.check_and_create_from_collection(winery_array)
-        if self.all == []
-            self.create_from_collection(winery_array)
-        else
-            self.all
-        end
+         create_from_collection(winery_array) if self.all == []
     end
 
     def save
@@ -30,6 +26,9 @@ class TopCAWineries::Winery
         @@all
     end
 end
+           
+        
+        
 
         
      

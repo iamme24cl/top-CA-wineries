@@ -10,7 +10,6 @@ class TopCAWineries::Scraper
             region.text
         end
     end
-        
 
     def self.winery_array
         @@doc.css("div.entry-content p a b").map do |winery|
@@ -18,13 +17,11 @@ class TopCAWineries::Scraper
         end
     end
         
-
     def self.winery_info_array
         modified_array = @@doc.css("div.entry-content p").map do |info|
             # remove \n from info and replace with :
             info.text.gsub("\n", ": ")
         end
-
         winery_info_array = []
         winery_info_array << modified_array[11..18] # Mendocino
         winery_info_array << modified_array[21..32] # Sonoma
@@ -32,10 +29,13 @@ class TopCAWineries::Scraper
         winery_info_array << modified_array[48..53] # East Bay
         winery_info_array << modified_array[56..60] # Monterey
         winery_info_array << modified_array[64..73] # Paso Robles 
-       
+        
         winery_info_array
     end
 end
+        
+
+
       
   
    
