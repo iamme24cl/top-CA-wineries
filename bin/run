@@ -3,6 +3,5 @@
 require_relative "../lib/environment"
 
 
-TopCAWineries::Scraper.scrape_page
 
 TopCAWineries::CLI.new.call

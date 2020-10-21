@@ -3,6 +3,7 @@ class TopCAWineries::CLI
     REVIEWS_URL = "https://thepress.sfchronicle.com/review"
 
     def call
+        TopCAWineries::Scraper.scrape_page
         @input = nil
         until @input == "exit"
             create_and_display_regions
@@ -54,7 +55,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region1
+                display_region_mendocino
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -72,7 +73,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region2
+                display_region_sonoma
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -90,7 +91,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region3
+                display_region_napa
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -108,7 +109,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region4
+                display_region_eastbay
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -126,7 +127,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region5
+                display_region_monterey
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -144,7 +145,7 @@ class TopCAWineries::CLI
             input = gets.strip.downcase
 
             if input == 'yes'
-                display_region6
+                display_region_pasorobles
             elsif input == 'exit'
                 puts "See you! Have a good one!"
                 exit
@@ -154,7 +155,7 @@ class TopCAWineries::CLI
         puts "\n"
     end
 
-    def display_region1 # Monterey
+    def display_region_mendocino
         display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
         display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
         display_winery_info.each.with_index(1) do |info, i|
@@ -162,35 +163,35 @@ class TopCAWineries::CLI
             puts "\n"
         end
     end
-    def display_region2 # Sonoma
+    def display_region_sonoma
         display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-    def display_region3 #Napa 
+    def display_region_napa 
         display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-    def display_region4 # East Bay
+    def display_region_eastbay
         display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-    def display_region5 # Monterey
+    def display_region_monterey
         display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
         end
     end
-    def display_region6 # Paso Robles
+    def display_region_pasorobles
         display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
