@@ -35,7 +35,7 @@ class TopCAWineries::CLI
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
 
-        TopCAWineries::WineRegion.create_winery_descriptions
+        # TopCAWineries::WineRegion.create_winery_descriptions
         
         puts "\n"
         puts "Enter the region number:"
@@ -154,7 +154,7 @@ class TopCAWineries::CLI
         puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
         puts "\n"
     end
-
+    # Display winery-info hepler methods
     def display_region_mendocino
         display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
         display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
