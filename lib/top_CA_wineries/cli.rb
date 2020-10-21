@@ -4,6 +4,7 @@ class TopCAWineries::CLI
 
     def call
         TopCAWineries::Scraper.scrape_page
+        
         @input = nil
         until @input == "exit"
             create_and_display_regions
@@ -49,14 +50,20 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_mendocino
-            elsif input == 'exit'
-                bye
-                exit
+            details_input = nil
+            while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_mendocino
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
             
         when 2
@@ -67,14 +74,19 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_sonoma
-            elsif input == 'exit'
-                bye
-                exit
+            while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_sonoma
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
          
         when 3
@@ -85,14 +97,19 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_napa
-            elsif input == 'exit'
-                bye
-                exit
+            while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_napa
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
 
         when 4
@@ -103,14 +120,19 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_eastbay
-            elsif input == 'exit'
-                bye
-                exit
+            while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_eastbay
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
 
         when 5
@@ -121,14 +143,19 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:magenta)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_monterey
-            elsif input == 'exit'
-                bye
-                exit
+           while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_monterey
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
 
         when 6
@@ -139,25 +166,26 @@ class TopCAWineries::CLI
                 puts "#{i}. #{winery.name.colorize(:green)}"
             end
             puts "\n"
-            puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
-            input = gets.strip.downcase
 
-            if input == 'yes'
-                display_region_pasorobles
-            elsif input == 'exit'
-                bye
-                exit
+            while details_input != 'yes'
+                puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+                details_input = gets.strip.downcase
+
+                if details_input == 'yes'
+                    display_region_pasorobles
+                elsif details_input == 'exit'
+                    bye
+                    exit
+                else
+                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                end
             end
-        else
-            puts "That is not a valid input. Type in the region number you would like to view.".colorize(:red)
-            create_and_display_wineries
-        end
        
     end
+
     # Display winery-info hepler methods
     def display_region_mendocino
         display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
-        # display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"

@@ -15,12 +15,12 @@ Top CA Wineries:
 4. Winery names: doc.css("div.entry-content p a b")
 5. Winery information: doc.css("div.entry-content p") 
     - Wine info array
-    a. Mendocino: [11..18]
-    b. Sonoma: [21..32]
-    c. Napa Valley: [35..45]
-    d. East Bay: [48..53]
-    e. Monterey: [56..60]
-    f. Paso Robles: [64..73]
+    a. Mendocino: [11..17]
+    b. Sonoma: [20..31]
+    c. Napa Valley: [34..44]
+    d. East Bay: [47..52]
+    e. Monterey: [55..59]
+    f. Paso Robles: [63..72]
 
 # Wineries
     a. Mendocino: [0..6]

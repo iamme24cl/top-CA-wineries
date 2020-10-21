@@ -18,18 +18,18 @@ class TopCAWineries::WineRegion
     def self.check_and_create_from_collection(region_array)
         if self.all == []
             create_from_collection(region_array)
-            create_winery_descriptions
+            add_winery_descriptions
         end
     end
 
-    def self.create_winery_descriptions
+    def self.add_winery_descriptions
         i = 0
         self.all.each do |region|
             region.winery_descriptions = TopCAWineries::Scraper.winery_info_array[i]
             i = i + 1
         end
     end
-        
+
     def save
         @@all << self
     end
@@ -38,6 +38,7 @@ class TopCAWineries::WineRegion
         @@all
     end
 end
+       
               
        
 
