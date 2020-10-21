@@ -34,8 +34,8 @@ class TopCAWineries::CLI
         winery_array = TopCAWineries::Scraper.winery_array
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
-        
         puts "\n"
+        
         puts "Enter the region number:"
         input = gets.strip.to_i       
         puts "\n"
@@ -55,7 +55,7 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_mendocino
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
             
@@ -73,7 +73,7 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_sonoma
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
          
@@ -91,7 +91,7 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_napa
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
 
@@ -109,7 +109,7 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_eastbay
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
 
@@ -127,11 +127,11 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_monterey
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
 
-        else
+        when 6
             puts "Here are some of the best wineries in Paso Robles and San Luis Obispo County"
             puts "\n"
             display_paso_robles = wineries[41..50]
@@ -145,12 +145,14 @@ class TopCAWineries::CLI
             if input == 'yes'
                 display_region_pasorobles
             elsif input == 'exit'
-                puts "See you! Have a good one!"
+                bye
                 exit
             end
+        else
+            puts "That is not a valid input. Type in the region number you would like to view.".colorize(:red)
+            create_and_display_wineries
         end
-        puts " You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
-        puts "\n"
+       
     end
     # Display winery-info hepler methods
     def display_region_mendocino
@@ -198,6 +200,8 @@ class TopCAWineries::CLI
     end
 
     def next_action?
+        puts "You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
+        puts "\n"
         puts "Are you done? Type 'exit' to leave the program or hit any key to see main menu.".colorize(:red)
         @input = gets.strip.downcase
     end
