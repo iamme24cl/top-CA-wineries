@@ -11,7 +11,9 @@ per "thepress.sfchronicle.com" 52 California wineries you need to visit.
 
 ## Installation
 
-$ gem install top_CA_wineries
+<!-- $ gem install top_CA_wineries -->
+
+git clone this repo https://github.com/iamme24cl/top-CA-wineries to your local machine
 
 ## Usage
 
