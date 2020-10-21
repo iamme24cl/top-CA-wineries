@@ -22,13 +22,15 @@ class TopCAWineries::Scraper
             # remove \n from info and replace with :
             info.text.gsub("\n", ": ")
         end
+        modified_array.delete_if {|info| info.include?("Long Meadow Ranch")}
+
         winery_info_array = []
-        winery_info_array << modified_array[11..18] # Mendocino
-        winery_info_array << modified_array[21..32] # Sonoma
-        winery_info_array << modified_array[35..45] # Napa
-        winery_info_array << modified_array[48..53] # East Bay
-        winery_info_array << modified_array[56..60] # Monterey
-        winery_info_array << modified_array[64..73] # Paso Robles 
+        winery_info_array << modified_array[11..17] # Mendocino
+        winery_info_array << modified_array[20..31] # Sonoma
+        winery_info_array << modified_array[34..44] # Napa
+        winery_info_array << modified_array[47..52] # East Bay
+        winery_info_array << modified_array[55..59] # Monterey
+        winery_info_array << modified_array[63..72] # Paso Robles 
         
         winery_info_array
     end

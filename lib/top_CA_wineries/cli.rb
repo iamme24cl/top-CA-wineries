@@ -157,7 +157,7 @@ class TopCAWineries::CLI
     # Display winery-info hepler methods
     def display_region_mendocino
         display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
-        display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
+        # display_winery_info.delete_if {|description| description.include?("Long Meadow Ranch")}
         display_winery_info.each.with_index(1) do |info, i|
             puts "#{i}. #{info.colorize(:cyan)}"
             puts "\n"
