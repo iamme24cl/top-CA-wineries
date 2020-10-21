@@ -1,4 +1,5 @@
 class TopCAWineries::Winery
+    
     attr_accessor :name
 
     @@all = []

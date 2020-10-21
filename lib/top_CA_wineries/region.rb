@@ -23,10 +23,9 @@ class TopCAWineries::WineRegion
     end
 
     def self.create_winery_descriptions
-        descriptions = TopCAWineries::Scraper.winery_info_array 
         i = 0
         self.all.each do |region|
-            region.winery_descriptions = descriptions[i]
+            region.winery_descriptions = TopCAWineries::Scraper.winery_info_array[i]
             i = i + 1
         end
     end

@@ -34,8 +34,6 @@ class TopCAWineries::CLI
         winery_array = TopCAWineries::Scraper.winery_array
         TopCAWineries::Winery.check_and_create_from_collection(winery_array)
         wineries = TopCAWineries::Winery.all
-
-        # TopCAWineries::WineRegion.create_winery_descriptions
         
         puts "\n"
         puts "Enter the region number:"
@@ -209,6 +207,7 @@ class TopCAWineries::CLI
     end
 end
     
+       
 
 
         
