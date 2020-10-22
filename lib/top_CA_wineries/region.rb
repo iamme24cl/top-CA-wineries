@@ -1,6 +1,6 @@
 class TopCAWineries::WineRegion
 
-    attr_accessor :name, :winery_descriptions
+    attr_accessor :name, :winery_descriptions, :wineries
     
     @@all = []
 
@@ -16,16 +16,26 @@ class TopCAWineries::WineRegion
     end
 
     def self.check_and_create_from_collection(region_array)
-        if self.all == []
-            create_from_collection(region_array)
-            add_winery_descriptions
-        end
+        create_from_collection(region_array) if self.all == []
     end
-
+        
+    def self.add_attributes
+        add_winery_descriptions
+        add_wineries
+    end
+           
     def self.add_winery_descriptions
         i = 0
         self.all.each do |region|
             region.winery_descriptions = TopCAWineries::Scraper.winery_info_array[i]
+            i = i + 1
+        end
+    end
+
+    def self.add_wineries
+        i = 0
+        self.all.each do |region|
+            region.wineries = TopCAWineries::Winery.wineries_by_region[i]
             i = i + 1
         end
     end
