@@ -23,17 +23,18 @@ class TopCAWineries::CLI
         puts "\n"
         
         TopCAWineries::WineRegion.check_and_create_from_collection(TopCAWineries::Scraper.region_array)
-        TopCAWineries::WineRegion.add_attributes
         
         display_region = TopCAWineries::WineRegion.all
         display_region.each.with_index(1) do |region, i|
             puts "#{i}. #{region.name.colorize(:red)}"
         end
     end
-        
-
+    
+    
     def create_and_display_wineries
         TopCAWineries::Winery.check_and_create_from_collection(TopCAWineries::Scraper.winery_array)
+        # add wineries and their descriptions to each Region
+        TopCAWineries::WineRegion.add_attributes
         puts "\n"
         
         puts "Enter the region number:"
