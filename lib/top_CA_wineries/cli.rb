@@ -23,6 +23,7 @@ class TopCAWineries::CLI
         puts "\n"
         
         TopCAWineries::WineRegion.check_and_create_from_collection(TopCAWineries::Scraper.region_array)
+        TopCAWineries::WineRegion.add_attributes
         
         display_region = TopCAWineries::WineRegion.all
         display_region.each.with_index(1) do |region, i|
@@ -33,7 +34,6 @@ class TopCAWineries::CLI
 
     def create_and_display_wineries
         TopCAWineries::Winery.check_and_create_from_collection(TopCAWineries::Scraper.winery_array)
-        TopCAWineries::WineRegion.add_attributes
         puts "\n"
         
         puts "Enter the region number:"
@@ -185,8 +185,6 @@ class TopCAWineries::CLI
             create_and_display_wineries
         end
     end
-         
-        
 
     # Display winery-info hepler methods
     def display_region_mendocino
