@@ -32,7 +32,7 @@ class TopCAWineries::Scraper
         winery_info_array << modified_array[55..59] # Monterey
         winery_info_array << modified_array[63..72] # Paso Robles 
         
-        winery_info_array
+        winery_info_array.flatten!
     end
 end
         
