@@ -34,7 +34,7 @@ class TopCAWineries::CLI
     def create_and_display_wineries
         TopCAWineries::Winery.check_and_create_from_collection(TopCAWineries::Scraper.winery_array)
         # add wineries and their descriptions to each Region
-        TopCAWineries::WineRegion.add_attributes
+        TopCAWineries::WineRegion.add_wineries 
         puts "\n"
         
         puts "Enter the region number:"
@@ -189,44 +189,38 @@ class TopCAWineries::CLI
 
     # Display winery-info hepler methods
     def display_region_mendocino
-        display_winery_info = TopCAWineries::WineRegion.all[0].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+        TopCAWineries::WineRegion.all[0].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
     def display_region_sonoma
-        display_winery_info = TopCAWineries::WineRegion.all[1].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+        TopCAWineries::WineRegion.all[1].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
     def display_region_napa 
-        display_winery_info = TopCAWineries::WineRegion.all[2].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+        TopCAWineries::WineRegion.all[2].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
     def display_region_eastbay
-        display_winery_info = TopCAWineries::WineRegion.all[3].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+       TopCAWineries::WineRegion.all[3].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
     def display_region_monterey
-        display_winery_info = TopCAWineries::WineRegion.all[4].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+       TopCAWineries::WineRegion.all[4].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
     def display_region_pasorobles
-        display_winery_info = TopCAWineries::WineRegion.all[5].winery_descriptions
-        display_winery_info.each.with_index(1) do |info, i|
-            puts "#{i}. #{info.colorize(:cyan)}"
+        TopCAWineries::WineRegion.all[5].wineries.each.with_index(1) do |winery, i|
+            puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end

@@ -32,12 +32,12 @@ class TopCAWineries::Winery
 
     def self.wineries_by_region
         region_wineries = []
-        region_wineries << all[0..6]
-        region_wineries << all[7..18]
-        region_wineries << all[19..29]
-        region_wineries << all[30..35]
-        region_wineries << all[36..40]
-        region_wineries << all[41..50]
+        region_wineries << all[0..6] # Mendocino
+        region_wineries << all[7..18] # Sonoma
+        region_wineries << all[19..29] # Napa
+        region_wineries << all[30..35] # East Bay
+        region_wineries << all[36..40] # Monterey
+        region_wineries << all[41..50] # Paso Robles
         region_wineries
     end
 
