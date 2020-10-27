@@ -22,7 +22,7 @@ Type the following and follow the on screen prompts:
 $ ./bin/run
 
 ## Demo Video
-[![Walthrough video]](https://youtu.be/bJeX_-OL6j4)
+[![Walthrough video]](https://youtu.be/WGRPamZItfE)
 
 
 ## Development
