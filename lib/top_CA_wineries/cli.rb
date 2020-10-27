@@ -30,7 +30,6 @@ class TopCAWineries::CLI
         end
     end
     
-    
     def create_and_display_wineries
         TopCAWineries::Winery.check_and_create_from_collection(TopCAWineries::Scraper.winery_array)
         # add wineries and their descriptions to each Region
@@ -119,7 +118,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
 
@@ -135,7 +134,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
 
@@ -143,6 +142,10 @@ class TopCAWineries::CLI
             puts "That is not a valid input. Type in the region number you would like to view.".colorize(:red)
             create_and_display_wineries
         end
+    end
+
+    def not_an_option
+       puts "That was not an option. Please type 'yes' or 'exit'!" 
     end
 
     # Display winery-info hepler methods
