@@ -57,7 +57,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_mendocino
+                    display_region("Mendocino County")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -80,7 +80,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_sonoma
+                    display_region("Sonoma County")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -103,7 +103,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_napa
+                    display_region("Napa Valley")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -126,7 +126,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_eastbay
+                    display_region("East Bay")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -149,7 +149,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_monterey
+                    display_region("Monterey County and Santa Cruz Mountains")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -172,7 +172,7 @@ class TopCAWineries::CLI
                 details_input = gets.strip.downcase
 
                 if details_input == 'yes'
-                    display_region_pasorobles
+                    display_region("Paso Robles and and San Luis Obispo County")
                 elsif details_input == 'exit'
                     bye
                     exit
@@ -188,43 +188,13 @@ class TopCAWineries::CLI
     end
 
     # Display winery-info hepler methods
-    def display_region_mendocino
-        TopCAWineries::WineRegion.all[0].wineries.each.with_index(1) do |winery, i|
+    def display_region(name)
+        TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
             puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
     end
-    def display_region_sonoma
-        TopCAWineries::WineRegion.all[1].wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
-        end
-    end
-    def display_region_napa 
-        TopCAWineries::WineRegion.all[2].wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
-        end
-    end
-    def display_region_eastbay
-       TopCAWineries::WineRegion.all[3].wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
-        end
-    end
-    def display_region_monterey
-       TopCAWineries::WineRegion.all[4].wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
-        end
-    end
-    def display_region_pasorobles
-        TopCAWineries::WineRegion.all[5].wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
-        end
-    end
-    
+
     # prompt user to return to the main menu or exit
     def next_action?
         puts "You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
