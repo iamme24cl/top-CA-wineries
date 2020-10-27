@@ -1,3 +1,5 @@
+require "top_CA_wineries/version"
+
 require_relative "./top_CA_wineries/version"
 require_relative "./top_CA_wineries/scraper"
 require_relative "./top_CA_wineries/region"
