@@ -54,7 +54,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
             
@@ -70,7 +70,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
          
@@ -86,7 +86,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
 
@@ -102,7 +102,7 @@ class TopCAWineries::CLI
                     bye
                     exit
                 else
-                    puts "That was not an option. Please type 'yes' or 'exit'!"
+                    not_an_option
                 end
             end
 
