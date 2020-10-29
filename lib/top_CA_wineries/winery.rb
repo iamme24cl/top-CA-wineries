@@ -10,9 +10,10 @@ class TopCAWineries::Winery
     end
         
     def self.create_from_collection(winery_array)
-        winery_array.each do |winery|
+        wineries = winery_array.each do |winery|
             TopCAWineries::Winery.new(winery)
         end
+        wineries
     end
 
     def self.check_and_create_from_collection(winery_array)

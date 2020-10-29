@@ -10,9 +10,10 @@ class TopCAWineries::WineRegion
     end
 
     def self.create_from_collection(region_array)
-        region_array.each do |region|
+        regions = region_array.each do |region|
             TopCAWineries::WineRegion.new(region)
         end
+        regions
     end
 
     def self.check_and_create_from_collection(region_array)
