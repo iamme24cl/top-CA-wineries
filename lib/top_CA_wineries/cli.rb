@@ -60,7 +60,6 @@ class TopCAWineries::CLI
         when 5
             region_name = "Monterey County and Santa Cruz Mountains"  
             winery_info(region_name)
-            
 
         when 6
             region_name = "Paso Robles and and San Luis Obispo County"  
@@ -76,19 +75,21 @@ class TopCAWineries::CLI
 
     def winery_info(region_name)
         display_wineries(region_name)
-        # Display description of wineries
-        details_input = nil
-        while details_input != 'yes'
-            details_input = gets.strip.downcase
 
-            if details_input == 'yes'
-                display_region_wineries_info(region_name)
-            elsif details_input == 'exit'
-                bye
-                exit
-            else
-                not_an_option
-            end
+        puts "\n"
+        puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+        input = ""
+        until input == 'yes' || input == 'exit'
+            input = gets.strip.downcase
+            not_an_option
+        end
+             
+        if input == 'yes'
+            # Display description of wineries
+            display_region_wineries_info(region_name)
+        elsif input == 'exit'
+            bye
+            exit
         end
     end
     
@@ -99,11 +100,7 @@ class TopCAWineries::CLI
         TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
             puts "#{i}. #{winery.name.colorize(:green)}"
         end
-        
-        puts "\n"
-        puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
     end
-    
     
     def display_region_wineries_info(name)
         TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
