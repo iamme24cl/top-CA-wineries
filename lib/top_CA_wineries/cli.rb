@@ -42,131 +42,78 @@ class TopCAWineries::CLI
         
         case region_input
         when 1
-            display_wineries("Mendocino County")
-            # Display description of wineries
-            details_input = nil
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
+          region_name = "Mendocino County"  
+          winery_info(region_name)
 
-                if details_input == 'yes'
-                    display_region_wineries_info("Mendocino County")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
-            
         when 2
-            display_wineries("Sonoma County")
-            # Display description of wineries
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
-
-                if details_input == 'yes'
-                    display_region_wineries_info("Sonoma County")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
-         
+            region_name = "Sonoma County"  
+            winery_info(region_name)
+                     
         when 3
-            display_wineries("Napa Valley")
-            # Display description of wineries
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
-
-                if details_input == 'yes'
-                    display_region_wineries_info("Napa Valley")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
-
+            region_name = "Napa Valley"  
+            winery_info(region_name)
+           
         when 4
-            display_wineries("East Bay")
-            # Display description of wineries
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
-
-                if details_input == 'yes'
-                    display_region_wineries_info("East Bay")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
-
+            region_name = "East Bay"  
+            winery_info(region_name)
+            
         when 5
-            display_wineries("Monterey County and Santa Cruz Mountains")
-            # Display description of wineries
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
-
-                if details_input == 'yes'
-                    display_region_wineries_info("Monterey County and Santa Cruz Mountains")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
+            region_name = "Monterey County and Santa Cruz Mountains"  
+            winery_info(region_name)
+            
 
         when 6
-            display_wineries("Paso Robles and and San Luis Obispo County")
-            # Display description of wineries
-            while details_input != 'yes'
-                details_input = gets.strip.downcase
-
-                if details_input == 'yes'
-                    display_region_wineries_info("Paso Robles and and San Luis Obispo County")
-                elsif details_input == 'exit'
-                    bye
-                    exit
-                else
-                    not_an_option
-                end
-            end
-
+            region_name = "Paso Robles and and San Luis Obispo County"  
+            winery_info(region_name)
+            
         else
             puts "That is not a valid input. Type in the region number you would like to view.".colorize(:red)
             create_and_display_wineries
         end
     end
 
-    def not_an_option
-       puts "That was not an option. Please type 'yes' or 'exit'!" 
-    end
+    # Helper Methods
 
-    # Display winery-info hepler methods
+    def winery_info(region_name)
+        display_wineries(region_name)
+        # Display description of wineries
+        details_input = nil
+        while details_input != 'yes'
+            details_input = gets.strip.downcase
+
+            if details_input == 'yes'
+                display_region_wineries_info(region_name)
+            elsif details_input == 'exit'
+                bye
+                exit
+            else
+                not_an_option
+            end
+        end
+    end
     
     def display_wineries(name)
         puts "Here are some of the best wineries in #{name}"
         puts "\n"
-
+        
         TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
             puts "#{i}. #{winery.name.colorize(:green)}"
         end
-
+        
         puts "\n"
         puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
     end
-
+    
+    
     def display_region_wineries_info(name)
         TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
             puts "#{i}. #{winery.description.colorize(:cyan)}"
             puts "\n"
         end
+    end
+
+    def not_an_option
+       puts "That was not an option. Please type 'yes' or 'exit'!" 
     end
 
     # prompt user to return to the main menu or exit
@@ -176,12 +123,12 @@ class TopCAWineries::CLI
         puts "Are you done? Type 'exit' to leave the program or hit any key to see main menu.".colorize(:red)
         @input = gets.strip.downcase
     end
-
+    
     def bye
         puts "See you! Have a good one!"
     end
 end
-    
+
        
 
 
