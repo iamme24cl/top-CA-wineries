@@ -160,13 +160,24 @@ class TopCAWineries::CLI
 
         puts "\n"
         puts "Want some details about these wineries?? Type 'yes' to continue or 'exit' to leave the program:".colorize(:red)
+        puts "\n"
     end
 
     def display_region_wineries_info(name)
-        TopCAWineries::WineRegion.all.find {|region| region.name.downcase == name.downcase}.wineries.each.with_index(1) do |winery, i|
-            puts "#{i}. #{winery.description.colorize(:cyan)}"
-            puts "\n"
+        wineries = TopCAWineries::WineRegion.all.find{|region| region.name.downcase == name.downcase}.wineries
+        puts "\n"
+        puts "Please enter the number of the winery you would like to view:"
+
+        num = ""
+        until num.is_a?(Integer) && num > 0 && num < wineries.size
+            num = gets.strip.to_i
+            puts "/n"
+            puts "Winery not found, please select a valid winery number!"
         end
+        show_winery = wineries[num - 1]
+        puts "\n"
+        puts show_winery.description.colorize(:red)
+        puts "\n"
     end
 
     # prompt user to return to the main menu or exit
