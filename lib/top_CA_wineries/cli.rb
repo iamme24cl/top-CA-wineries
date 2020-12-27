@@ -169,21 +169,23 @@ class TopCAWineries::CLI
         puts "Please enter the number of the winery you would like to view:"
 
         num = ""
-        until num.is_a?(Integer) && num > 0 && num < wineries.size
+        until num.is_a?(Integer) && num > 0 && num <= wineries.size
             num = gets.strip.to_i
-            puts "/n"
-            puts "Winery not found, please select a valid winery number!"
+            if num == 0 || num > wineries.size
+                puts "\n"
+                puts "Winery not found, please select a valid winery number!"
+            end
         end
         show_winery = wineries[num - 1]
         puts "\n"
-        puts show_winery.description.colorize(:red)
+        puts show_winery.description.colorize(:green)
         puts "\n"
     end
 
     # prompt user to return to the main menu or exit
     def next_action?
-        puts "You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
-        puts "\n"
+        # puts "You can find more information and reviews about these wineries at #{REVIEWS_URL.colorize(:green)}"
+        # puts "\n"
         puts "Are you done? Type 'exit' to leave the program or hit any key to see main menu.".colorize(:red)
         @input = gets.strip.downcase
     end
