@@ -119,6 +119,9 @@ class TopCAWineries::CLI
         puts "\n"
         puts show_winery.description.colorize(:green)
         puts "\n"
+        puts "Winery name: #{show_winery.name}"
+        puts "Region: #{name}"
+        puts "\n"
     end
     
     def not_an_option
@@ -127,7 +130,7 @@ class TopCAWineries::CLI
 
     # prompt user to return to the main menu or exit
     def next_action?
-        puts "Hit any key to see the main menu or type 'exit' if you are done:".colorize(:red)
+        puts "Hit any key to go back to the main menu or type 'exit' if you are done:".colorize(:red)
         @input = gets.strip.downcase
     end
     
